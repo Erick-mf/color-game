@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 20vh;
+}
+
+#menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 5vh;
+    background-color: #f2f2f2;
+}
+
+#menu-1 {
+    height: auto;
+}
+
+#menu-2 {
+    width: auto;
+    height: auto;
+}
+
+button {
+    padding: 5px; 
+    font-size: 1.1rem;
+}
+
+.colores  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin: 5px;
+}
+
+div {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 5%;
+}
