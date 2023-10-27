@@ -8,7 +8,7 @@ window.onload = () => {
         limpiar();
         btn_2.disabled = false;
         btn_3.disabled = false;
-    })
+    });
 
     let btn_2 = document.getElementById("btn-2");
 
@@ -16,7 +16,7 @@ window.onload = () => {
         nivelFacil();
         btn_2.disabled = true;
         btn_3.disabled = true;
-    })
+    });
 
     let btn_3 = document.getElementById("btn-3");
 
@@ -24,8 +24,8 @@ window.onload = () => {
         nivelDificil();
         btn_3.disabled = true;
         btn_2.disabled = true;
-    })
-}
+    });
+};
 
 function randomColor() {
     let red = Math.floor(Math.random() * 256);
@@ -36,7 +36,7 @@ function randomColor() {
 }
 
 function generarColores(num) {
-    let seccionColores = document.querySelector('.colores');
+    let seccionColores = document.querySelector(".colores");
     let colorDivs = [];
 
     for (let i = 0; i < num; i++) {

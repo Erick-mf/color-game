@@ -12,3 +12,5 @@ El proyecto consta de tres archivos principales:
 
 3. `script.js`: Este archivo contiene toda la lógica del juego escrita en JavaScript. Incluye funciones para generar colores aleatorios, comprobar si el color seleccionado por el usuario es correcto, y más.
 
+## Enalce de producción
+ Puedes jugar al Juego de Colores en vivo aquí: https://erick-mf.github.io/color-game/

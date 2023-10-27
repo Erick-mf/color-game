@@ -41,11 +41,11 @@
 }
 
 button {
-    padding: 5px; 
+    padding: 5px;
     font-size: 1.1rem;
 }
 
-.colores  {
+.colores {
     display: flex;
     align-items: center;
     justify-content: center;
