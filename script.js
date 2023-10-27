@@ -1,4 +1,5 @@
 let colorSeleccionado = null;
+let vidas = 0;
 
 window.onload = () => {
     let btn_1 = document.getElementById("btn-1");
@@ -50,11 +51,15 @@ function generarColores(num) {
 }
 
 function nivelFacil() {
+    vidas = 2;
+    document.getElementById("lives").innerHTML = "LIVES " + vidas;
     generarColores(3);
     iniciarJuego();
 }
 
 function nivelDificil() {
+    vidas = 4;
+    document.getElementById("lives").innerHTML = "LIVES " + vidas;
     generarColores(6);
     iniciarJuego();
 }
@@ -62,9 +67,17 @@ function nivelDificil() {
 function comprobarColor(colorDiv) {
     if (colorDiv === colorSeleccionado) {
         alert("¡Adivinaste el color!");
+        limpiar();
         iniciarJuego();
     } else {
-        console.log("Intenta de nuevo");
+        vidas--;
+        if (vidas > 0) {
+            document.getElementById("lives").innerHTML = "LIVES " + vidas;
+        } else {
+            alert("Has perdido todas tus vidas.");
+            limpiar();
+            iniciarJuego();
+        }
     }
 }
 
@@ -74,6 +87,7 @@ function limpiar() {
     limpiar_colores.innerHTML = "";
 
     document.getElementById("rgb").textContent = "rgb( );";
+    document.getElementById("lives").innerHTML = "LIVES";
 }
 
 function iniciarJuego() {
