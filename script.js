@@ -1,8 +1,10 @@
+let colorSeleccionado = null;
+
 window.onload = () => {
     let btn_1 = document.getElementById("btn-1");
 
     btn_1.addEventListener("click", () => {
-        iniciarJuego();
+        limpiar();
         btn_2.disabled = false;
         btn_3.disabled = false;
     })
@@ -29,34 +31,55 @@ function randomColor() {
     let green = Math.floor(Math.random() * 256);
     let blue = Math.floor(Math.random() * 256);
 
-    return `RGB(${red}, ${green}, ${blue})`;
+    return `rgb(${red}, ${green}, ${blue})`;
 }
 
 function generarColores(num) {
     let seccionColores = document.querySelector('.colores');
+    let colorDivs = [];
 
     for (let i = 0; i < num; i++) {
-        let color = randomColor();
-        seccionColores.innerHTML += `<div style="background-color: ${color};"></div>`;
+        const color = randomColor();
+        let div = document.createElement("div");
+        div.style.backgroundColor = color;
+        colorDivs.push(color); // Almacenar el color en un arreglo, porque seleccionaba el ultimo color siempre
+        div.addEventListener("click", () => comprobarColor(color));
+        seccionColores.appendChild(div);
     }
+    colorSeleccionado = colorDivs[Math.floor(Math.random() * num)];
 }
 
 function nivelFacil() {
     generarColores(3);
+    iniciarJuego();
 }
 
 function nivelDificil() {
     generarColores(6);
+    iniciarJuego();
+}
+
+function comprobarColor(colorDiv) {
+    if (colorDiv === colorSeleccionado) {
+        alert("¡Adivinaste el color!");
+        iniciarJuego();
+    } else {
+        console.log("Intenta de nuevo");
+    }
+}
+
+function limpiar() {
+    let limpiar_colores = document.querySelector(".colores");
+
+    limpiar_colores.innerHTML = "";
+
+    document.getElementById("rgb").textContent = "rgb( );";
 }
 
 function iniciarJuego() {
-    let limpiar_colores = document.querySelector('.colores');
-
-    limpiar_colores.innerHTML = '';
-
-    document.getElementById("rgb").innerHTML = randomColor();
-
-    let fondo_titulo = document.getElementById("titulo");
-    fondo_titulo.style.backgroundColor = randomColor();
+    if (colorSeleccionado !== null) {
+        document.getElementById("rgb").textContent = colorSeleccionado;
+    } else {
+        document.getElementById("rgb").textContent = "rgb( );";
+    }
 }
-
